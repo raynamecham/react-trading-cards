@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" href="data:,">
+
+  <!-- We'll load React dependencies on all pages for this app. -->
+  <script>
+    // get rid of annoying warning
+    SharedArrayBuffer = ArrayBuffer;
+
+    // get rid of React DevTools warning
+    __REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+      supportsFiber: true,
+      inject: function() {},
+      onCommitFiberRoot: function() {},
+      onCommitFiberUnmount: function() {},
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  
+
+  <!-- Include any page-specific Javascript using this block. -->
+  {% block js %}
+  {% endblock %}
+
+  <link href="/static/css/site.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Welcome to Balloonicorn's Trading Card site</h1>
+
+  <!-- Include the page's content with this block. -->
+  {% block body %}
+  {% endblock %}
+</body>
+</html>
